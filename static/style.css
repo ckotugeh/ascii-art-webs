@@ -1,0 +1,53 @@
+body {
+    background-color: rgb(138, 186, 149);
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything horizontally */
+    min-height: 100vh;   /* Ensures background covers the whole screen */
+}
+
+h1 {
+    margin: 40px 0;
+    font-size: 2rem;
+    font-weight: bolder;
+    padding: 10px 20px;
+    transition: 0.3s;
+    border-radius: 8px;
+}
+
+h1:hover {
+    background: rgb(16, 126, 21);
+    color: white;
+}
+
+form {
+    background-color: rgb(17, 101, 101);
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 80%;
+    max-width: 600px;
+}
+
+input, select, button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+
+/* This is the most important part for your ASCII art */
+pre {
+    background: #f4f4f4;
+    padding: 20px;
+    border: 2px solid #333;
+    overflow-x: auto; /* Adds a scrollbar if the art is too wide */
+    font-family: "Courier New", Courier, monospace;
+    white-space: pre; /* Keeps the ASCII formatting exact */
+    width: 90%;
+    margin-top: 20px;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>ASCII Art Web</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+<body>
+    <h1>ASCII Art Web</h1>
+
+    <form action="/ascii-art" method="POST">
+        <textarea name="text" rows="5" cols="40" placeholder="Enter text"></textarea><br><br>
+
+        <label><input type="radio" name="banner" value="standard" checked> standard</label>
+        <label><input type="radio" name="banner" value="shadow"> shadow</label>
+        <label><input type="radio" name="banner" value="thinkertoy"> thinkertoy</label>
+
+        <br><br>
+        <button type="submit">Generate</button>
+    </form>
+
+    
+    {{if .Result}}
+    <h2>Generated ASCII Art:</h2>
+    <pre>{{.Result}}</pre>
+    {{end}}
+</body>
+</html>
