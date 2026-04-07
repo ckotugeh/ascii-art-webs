@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(138, 186, 149);
+    background-color: rgb(186, 191, 187);
     margin: 0;
     font-family: sans-serif;
     display: flex;
@@ -23,7 +23,7 @@ h1:hover {
 }
 
 form {
-    background-color: rgb(17, 101, 101);
+    background-color: rgb(150, 152, 226);
     padding: 30px;
     border-radius: 15px;
     display: flex;
@@ -40,12 +40,12 @@ input, select, button {
     text-align: center;
 }
 
-/* This is the most important part for your ASCII art */
+/* This is the most important part for your ASCII art is a popup when generating output */
 pre {
     background: #f4f4f4;
     padding: 20px;
     border: 2px solid #333;
-    overflow-x: auto; /* Adds a scrollbar if the art is too wide */
+    overflow-x: auto; /* Adds a scrollbar horizontally if the art is too wide */
     font-family: "Courier New", Courier, monospace;
     white-space: pre; /* Keeps the ASCII formatting exact */
     width: 90%;

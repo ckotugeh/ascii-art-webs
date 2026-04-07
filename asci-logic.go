@@ -16,7 +16,7 @@ func generateASCIIArt(text, banner string) (string, error) {
 	}
 	defer file.Close()
 
-	// 2. Read all lines into a slice
+	// Read all lines into a slice
 	var lines []string
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
@@ -26,7 +26,7 @@ func generateASCIIArt(text, banner string) (string, error) {
 		return "", err
 	}
 
-	// 3. Prepare output using strings.Builder for efficiency
+	// Prepare output using strings.Builder for efficiency
 	var result strings.Builder
 
 	// 4. Split input text into lines (handling literal \n strings if needed)

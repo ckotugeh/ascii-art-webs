@@ -8,9 +8,9 @@ import (
 )
 
 func main() {
-	fs := http.FileServer(http.Dir("static"))
-
+	fs := http.FileServer(http.Dir("static")) // maps Get request Serve static files from the "static" directory
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
 	http.HandleFunc("/", homeHandler)
 	http.HandleFunc("/ascii-art", asciiHandler)
 
