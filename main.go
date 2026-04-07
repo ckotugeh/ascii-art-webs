@@ -13,7 +13,7 @@ func main() {
 
 	http.HandleFunc("/", homeHandler)
 	http.HandleFunc("/ascii-art", asciiHandler)
-
+	http.HandleFunc("/ascii-live", asciiLiveHandler)
 	fmt.Println("server is running at http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }

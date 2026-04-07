@@ -11,20 +11,58 @@
     <h1>ASCII Art Web</h1>
 
     <form action="/ascii-art" method="POST">
-        <textarea name="text" rows="5" cols="40" placeholder="Enter text"></textarea><br><br>
+        <textarea name="text" rows="5" cols="40" placeholder="Enter text" oninput="handleTyping(this)"></textarea><br><br>
 
         <label><input type="radio" name="banner" value="standard" checked> standard</label>
         <label><input type="radio" name="banner" value="shadow"> shadow</label>
         <label><input type="radio" name="banner" value="thinkertoy"> thinkertoy</label>
 
         <br><br>
-        <button type="submit">Generate</button>
+        <button type="submit">Clear</button> 
     </form>
 
-    
     {{if .Result}}
     <h2>Generated ASCII Art:</h2>
-    <pre>{{.Result}}</pre>
+    
     {{end}}
+        
+    
+    <pre id="output"></pre>
+
+<script>
+function handleTyping(element) {
+    const text = element.value;
+    const banner = document.querySelector('input[name="banner"]:checked').value;
+
+    fetch('/ascii-live', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: text, banner: banner })
+    })
+    .then(res => res.text())
+    .then(data => {
+        document.getElementById('output').innerText = data;
+    })
+    .catch(err => console.error('Error:', err));
+}
+
+document.querySelectorAll('input[name="banner"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        const text = document.querySelector('textarea[name="text"]').value;
+        if (text) {
+            handleTyping(document.querySelector('textarea[name="text"]'));
+        }
+    });
+});
+</script>
+<footer>
+    <p>&copy; <span id="year"></span> Charles & Gavin. All Right Reserved</p>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</footer>
+    
 </body>
 </html>

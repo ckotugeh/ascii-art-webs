@@ -1,7 +1,6 @@
 package main
 
 import (
-	
 	"testing"
 )
 
@@ -37,7 +36,7 @@ func TestGenerateASCIIArt(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got, err := generateASCIIArt(tt.text, tt.banner)
-			
+
 			// Check if error matches expectation
 			if (err != nil) != tt.wantErr {
 				t.Errorf("generateASCIIArt() error = %v, wantErr %v", err, tt.wantErr)
